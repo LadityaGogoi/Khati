@@ -9,8 +9,35 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'comfortaa-regular': ["font-regular", "sans-serif"],
-        'comfortaa-bold': ["font-bold", "sans-serif"],
+        'manjari-regular': ["manjari-regular", "sans-serif"],
+        'manjari-bold': ["manjari-bold", "sans-serif"],
+        'assamese-regular': ['assamese-regular', 'sans-serif'],
+      },
+      colors: {
+        green: {
+          500: "#24AE7C",
+          600: "#0D2A1F",
+        },
+        blue: {
+          500: "#79B5EC",
+          600: "#152432",
+        },
+        red: {
+          500: "#F37877",
+          600: "#3E1716",
+          700: "#F24E43",
+        },
+        light: {
+          200: "#E8E9E9",
+        },
+        dark: {
+          200: "#0D0F10",
+          300: "#131619",
+          400: "#1A1D21",
+          500: "#363A3D",
+          600: "#76828D",
+          700: "#ABB8C4",
+        },
       },
     },
   },

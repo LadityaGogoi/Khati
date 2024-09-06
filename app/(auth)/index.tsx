@@ -1,11 +1,13 @@
-import { Text, View } from "react-native"
+import { Redirect } from "expo-router"
+import { useState } from "react"
 
-const SignIn = () => {
+const Index = () => {
+    const [initial, setInitial] = useState(true)
     return (
-        <View>
-            <Text className="text-white">sign in</Text>
-        </View>
+        <>
+            <Redirect href={!initial ? "/(auth)/welcome" : "/(auth)/onboarding"} />
+        </>
     )
 }
 
-export default SignIn
+export default Index

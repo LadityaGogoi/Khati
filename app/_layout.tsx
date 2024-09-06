@@ -1,4 +1,3 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
@@ -18,13 +17,13 @@ export const unstable_settings = {
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
-SystemUI.setBackgroundColorAsync("#171717");
+SystemUI.setBackgroundColorAsync("#0D0F10");
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
-    'font-thin': require('../assets/fonts/Manjari-Thin.ttf'),
-    'font-regular': require('../assets/fonts/Manjari-Regular.ttf'),
-    'font-bold': require('../assets/fonts/Manjari-Bold.ttf'),
+    'manjari-regular': require('../assets/fonts/Manjari-Regular.ttf'),
+    'manjari-bold': require('../assets/fonts/Manjari-Bold.ttf'),
+    'assamese-regular': require('../assets/fonts/Assamese-Regular.ttf'),
   });
 
   // Expo Router uses Error Boundaries to catch errors in the navigation tree.
@@ -49,12 +48,10 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   return (
-    <ThemeProvider value={DarkTheme}>
-      <Stack>
-        <Stack.Screen name='index' options={{ headerShown: false }} />
-        <Stack.Screen name="(auth)" options={{ headerShown: false }} />
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-      </Stack>
-    </ThemeProvider>
+    <Stack>
+      <Stack.Screen name='index' options={{ headerShown: false }} />
+      <Stack.Screen name="(auth)/index" options={{ headerShown: false }} />
+      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+    </Stack>
   );
 }
