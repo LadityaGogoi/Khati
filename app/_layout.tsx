@@ -22,7 +22,9 @@ SystemUI.setBackgroundColorAsync("#171717");
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    'font-thin': require('../assets/fonts/Manjari-Thin.ttf'),
+    'font-regular': require('../assets/fonts/Manjari-Regular.ttf'),
+    'font-bold': require('../assets/fonts/Manjari-Bold.ttf'),
   });
 
   // Expo Router uses Error Boundaries to catch errors in the navigation tree.
@@ -49,6 +51,7 @@ function RootLayoutNav() {
   return (
     <ThemeProvider value={DarkTheme}>
       <Stack>
+        <Stack.Screen name='index' options={{ headerShown: false }} />
         <Stack.Screen name="(auth)" options={{ headerShown: false }} />
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       </Stack>

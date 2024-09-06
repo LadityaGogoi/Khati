@@ -7,7 +7,12 @@ module.exports = {
     "app.d.ts",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'comfortaa-regular': ["font-regular", "sans-serif"],
+        'comfortaa-bold': ["font-bold", "sans-serif"],
+      },
+    },
   },
   plugins: [],
 }
