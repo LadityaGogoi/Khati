@@ -1,17 +1,67 @@
-import { router } from "expo-router"
-import { Text, TouchableOpacity, View } from "react-native"
-import { SafeAreaView } from "react-native-safe-area-context"
+import { Icons } from "@/constants"
+import { Tabs } from "expo-router"
+import { Image } from "react-native"
 
-const Home = () => {
+const TabLayout = () => {
   return (
-    <SafeAreaView className="h-full w-screen bg-neutral-900">
-      <View>
-        <TouchableOpacity onPress={() => router.push('/(auth)')} className="border-2 border-green-500 rounded">
-          <Text className="font-manjari-regular text-3xl text-green-500 text-center">click auth</Text>
-        </TouchableOpacity>
-      </View>
-    </SafeAreaView>
+    <Tabs
+      screenOptions={{
+        tabBarActiveTintColor: '#24AE7C',
+        tabBarLabelStyle: {
+          paddingBottom: 10,
+        },
+        tabBarStyle: {
+          height: 64,
+        },
+        tabBarHideOnKeyboard: true
+      }}
+    >
+      <Tabs.Screen name="index" options={{
+        tabBarLabel: "Home",
+        tabBarIcon: ({ size, color }) => (
+          <Image
+            source={Icons.Home}
+            style={{ width: size, height: size }}
+            tintColor={color}
+          />
+        ),
+        headerShown: false
+      }} />
+      <Tabs.Screen name="course" options={{
+        tabBarLabel: "Course",
+        tabBarIcon: ({ size, color }) => (
+          <Image
+            source={Icons.Course}
+            style={{ width: size, height: size }}
+            tintColor={color}
+          />
+        ),
+        headerShown: false
+      }} />
+      <Tabs.Screen name="test-series" options={{
+        tabBarLabel: "Test Series",
+        tabBarIcon: ({ size, color }) => (
+          <Image
+            source={Icons.Test}
+            style={{ width: size, height: size }}
+            tintColor={color}
+          />
+        ),
+        headerShown: false
+      }} />
+      <Tabs.Screen name="profile" options={{
+        tabBarLabel: "Profile",
+        tabBarIcon: ({ size, color }) => (
+          <Image
+            source={Icons.User}
+            style={{ width: size, height: size }}
+            tintColor={color}
+          />
+        ),
+        headerShown: false
+      }} />
+    </Tabs>
   )
 }
 
-export default Home
+export default TabLayout
