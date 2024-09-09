@@ -31,7 +31,7 @@ const SignUpScreen = () => {
                                 <View className="w-11 h-11 p-2 border-green-300 border-r-2">
                                     <Image source={Icons.Call} tintColor="#24AE7C" className="w-full h-full object-cover" />
                                 </View>
-                                <TextInput placeholder="Enter Your Phone Number" placeholderTextColor="#ABB8C4" className="px-1.5 flex-1 text-base text-slate-700 font-bold" />
+                                <TextInput placeholder="Enter Your Phone Number" placeholderTextColor="#ABB8C4" className="px-1.5 flex-1 text-base text-dark-700 font-bold" />
                             </View>
                         </View>
                         <View className="flex flex-col w-full gap-y-0.5">
@@ -40,7 +40,7 @@ const SignUpScreen = () => {
                                 <View className="w-11 h-11 p-2 border-green-300 border-r-2">
                                     <Image source={Icons.Lock} tintColor="#24AE7C" className="w-full h-full object-cover" />
                                 </View>
-                                <TextInput placeholder="Enter Your Password" placeholderTextColor="#ABB8C4" className="px-1.5 flex-1 text-base text-slate-700 font-bold" />
+                                <TextInput placeholder="Enter Your Password" placeholderTextColor="#ABB8C4" className="px-1.5 flex-1 text-base text-dark-700 font-bold" />
                             </View>
                         </View>
                     </View>

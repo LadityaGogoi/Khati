@@ -2,6 +2,7 @@ import { trendingTopics } from "@/assets/data/trending-topics"
 import { FlatList, Text, View } from "react-native"
 import TrendingTopicsCard from "./trending-topics-card"
 
+
 const TrendingTopics = () => {
     return (
         <View className="flex flex-col gap-y-1.5 my-3">

@@ -1,10 +1,8 @@
-import { Text, View } from "react-native"
+import CourseScreen from "@/screen/course"
 
 const Course = () => {
     return (
-        <View>
-            <Text>Course</Text>
-        </View>
+        <CourseScreen />
     )
 }
 

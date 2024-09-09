@@ -12,7 +12,7 @@ const CarouselItem = ({ item, index }: Props) => {
             <View className="w-32 h-32">
                 <Image source={item.image} className="w-full h-full object-cover" />
             </View>
-            <Text className="text-xl font-extrabold text-green-500">{item.description}</Text>
+            <Text className="text-lg font-extrabold text-green-500">{item.description}</Text>
         </View>
     )
 }
