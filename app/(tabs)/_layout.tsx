@@ -12,6 +12,7 @@ const TabLayout = () => {
         },
         tabBarStyle: {
           height: 64,
+          shadowColor: "#24AE7C",
         },
         tabBarHideOnKeyboard: true
       }}

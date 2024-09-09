@@ -9,9 +9,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'manjari-regular': ["manjari-regular", "sans-serif"],
-        'manjari-bold': ["manjari-bold", "sans-serif"],
         'assamese-regular': ['assamese-regular', 'sans-serif'],
+        'assamese-bold': ['assamese-bold', 'sans-serif'],
       },
       colors: {
         green: {

@@ -17,13 +17,12 @@ export const unstable_settings = {
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
-SystemUI.setBackgroundColorAsync("#0D0F10");
+SystemUI.setBackgroundColorAsync("#fff");
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
-    'manjari-regular': require('../assets/fonts/Manjari-Regular.ttf'),
-    'manjari-bold': require('../assets/fonts/Manjari-Bold.ttf'),
     'assamese-regular': require('../assets/fonts/Assamese-Regular.ttf'),
+    'assamese-bold': require('../assets/fonts/Assamese-Bold.ttf'),
   });
 
   // Expo Router uses Error Boundaries to catch errors in the navigation tree.
@@ -52,6 +51,7 @@ function RootLayoutNav() {
       <Stack.Screen name='index' options={{ headerShown: false }} />
       <Stack.Screen name="(auth)/index" options={{ headerShown: false }} />
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      <Stack.Screen name="(modals)/search" options={{ headerShown: false, presentation: 'modal' }} />
     </Stack>
   );
 }

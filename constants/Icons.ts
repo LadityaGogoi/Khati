@@ -6,6 +6,15 @@ import Notification from '@/assets/icons/notification.png'
 import Course from '@/assets/icons/course.png'
 import Test from '@/assets/icons/test.png'
 import Home from '@/assets/icons/home.png'
+import Call from '@/assets/icons/call.png'
+import Search from '@/assets/icons/search.png'
+import Idea from '@/assets/icons/idea.png'
+import Question from '@/assets/icons/question.png'
+import Video from '@/assets/icons/video.png'
+import Global from '@/assets/icons/global.png'
+import Book from '@/assets/icons/book.png'
+import List from '@/assets/icons/list.png'
+import View from '@/assets/icons/view.png'
 
 export default {
     Check,
@@ -15,5 +24,14 @@ export default {
     Notification,
     Course,
     Test,
-    Home
+    Home,
+    Call,
+    Search,
+    Idea,
+    Question,
+    Video,
+    Global,
+    Book,
+    List,
+    View
 }

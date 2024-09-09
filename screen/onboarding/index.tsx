@@ -1,24 +1,28 @@
+import { Images } from "@/constants";
 import { router, Stack } from "expo-router"
 import { StatusBar } from "expo-status-bar"
 import { useState } from "react";
-import { Text, TouchableOpacity, View } from "react-native"
-import Animated, { SlideInUp, SlideOutDown } from "react-native-reanimated";
+import { Image, Pressable, Text, TouchableOpacity, View } from "react-native"
+import Animated, { FadeInUp, FadeOutDown } from "react-native-reanimated";
 import { SafeAreaView } from "react-native-safe-area-context"
 
 const OnboardingSteps = [
     {
         id: 0,
         heading: "#1 ADRE platform",
+        img: Images.Platform,
         subheading: "অসমৰ আটাইতকৈ সাধাৰণ আৰু পূৰ্বৰ প্ৰশ্নবোৰ অনুশীলন কৰাৰ একমাত্ৰ সম্পূৰ্ণ মঞ্চ, য'ত পৰীক্ষাৰ্থীসকলে বিনামূলীয়াভাৱে অতি প্ৰয়োজনীয় প্ৰস্তুতি গ্ৰহণ কৰিব পাৰে।"
     },
     {
         id: 1,
         heading: "Free Mock Tests",
+        img: Images.Exam,
         subheading: "পৰীক্ষাৰ্থীসকলে বিনামূলীয়া মক টেষ্টৰ যোগেদি তেওঁলোকৰ জ্ঞানৰ পৰিসীমা বুজি পায় আৰু প্ৰস্তুতিত উন্নতি ঘটাব পাৰে।"
     },
     {
         id: 2,
         heading: "Performance Analysis",
+        img: Images.Analysis,
         subheading: "মক টেষ্টৰ পিছত পৰীক্ষাৰ্থীসকলে নিজৰ পাৰফৰ্মেন্সৰ পৰিৱৰণ পোৱা যায়, য'ত সঠিক উত্তৰ আৰু ভুল উত্তৰৰ তথ্য উপস্থাপন কৰা হয়।"
     },
 ];
@@ -35,30 +39,28 @@ const OnboardingScreen = () => {
         setIndex((index + 1) % OnboardingSteps.length)
     }
     return (
-        <SafeAreaView className="flex-1 flex-col justify-between items-center bg-dark-200">
+        <SafeAreaView className="flex-1 bg-white">
             <Stack.Screen options={{ headerShown: false }} />
-            <View className="h-1/6 w-72 flex flex-row justify-between items-center">
-                <View className="flex flex-row justify-center items-center gap-x-1.5">
-                    {OnboardingSteps.map((item) => (
-                        <View key={item.id} className={`bg-green-500 rounded-full ${index === item.id ? 'w-5' : 'w-1.5'} h-1.5`}></View>
-                    ))}
+            <View className="h-screen flex flex-col justify-between items-center">
+                <View className="w-full pr-3 flex flex-row justify-end items-start">
+                    <TouchableOpacity onPress={() => router.push('/(auth)/welcome')}>
+                        <Text className="text-base font-extrabold text-slate-700">Skip</Text>
+                    </TouchableOpacity>
                 </View>
-                <View>
-                    <Text className="text-white">Skip</Text>
-                </View>
-            </View>
-            <View className="h-4/6 justify-center items-center">
-                <Animated.View key={index} entering={SlideInUp.delay(100)} exiting={SlideOutDown}>
-                    <Text className="text-center text-green-500  font-manjari-bold text-3xl">{step.heading}</Text>
-                    <Text className="p-3 text-center text-light-200 text-base">{step.subheading}</Text>
+                <Animated.View key={index} entering={FadeInUp.delay(100)} exiting={FadeOutDown} className="flex-1 justify-center items-center">
+                    <Text className="text-center text-green-500 text-lg font-bold">{step.heading}</Text>
+                    <View className="w-64 h-64">
+                        <Image source={step.img} className="w-full h-full object-cover" />
+                    </View>
+                    <Text className="p-3 text-center font-assamese-regular text-slate-700 text-base">{step.subheading}</Text>
                 </Animated.View>
+                <View className="w-9/12 mb-3 flex flex-col justify-center items-center">
+                    <TouchableOpacity className="w-full p-3 rounded-full bg-green-500 justify-center items-center" onPress={() => handleClick()}>
+                        <Text className="text-lg font-bold text-white">{index !== OnboardingSteps.length - 1 ? 'Continue' : 'Get Started'}</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
-            <View className="h-1/6 justify-center items-center">
-                <TouchableOpacity className="w-64 p-3 rounded-full bg-green-500 justify-center items-center" onPress={() => handleClick()}>
-                    <Text className="font-manjari-bold text-lg text-white">{index !== OnboardingSteps.length - 1 ? 'Continue' : 'Get Started'}</Text>
-                </TouchableOpacity>
-            </View>
-            <StatusBar style="light" />
+            <StatusBar style="dark" />
         </SafeAreaView>
     )
 }
