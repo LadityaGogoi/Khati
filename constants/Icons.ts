@@ -15,6 +15,7 @@ import Global from '@/assets/icons/global.png'
 import Book from '@/assets/icons/book.png'
 import List from '@/assets/icons/list.png'
 import View from '@/assets/icons/view.png'
+import Bookmark from '@/assets/icons/bookmark.png'
 
 export default {
     Check,
@@ -33,5 +34,6 @@ export default {
     Global,
     Book,
     List,
-    View
+    View,
+    Bookmark
 }

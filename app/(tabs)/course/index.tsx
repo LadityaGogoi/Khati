@@ -1,4 +1,4 @@
-import CourseScreen from "@/screen/course"
+import CourseScreen from "@/screen/course";
 
 const Course = () => {
     return (

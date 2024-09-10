@@ -15,7 +15,7 @@ const CourseScreen = () => {
                     <Text className="text-xl font-extrabold text-dark-500">ADRE Course</Text>
                 </View>
                 <View className="w-11/12 py-2 px-5 mx-auto flex flex-row justify-between items-center border-2 rounded-full border-dark-700">
-                    <TextInput placeholder="Search your topic" placeholderTextColor="#ABB8C4" className="px-1.5 flex-1 text-base text-dark-700 font-bold" />
+                    <TextInput placeholder="Search your subject" placeholderTextColor="#ABB8C4" className="px-1.5 flex-1 text-base text-dark-700 font-bold" />
                     <View className="w-5 h-5">
                         <Image source={Icons.Search} tintColor="#363A3D" className="w-full h-full object-cover" />
                     </View>

@@ -1,5 +1,6 @@
 import { CourseTopicType } from "@/assets/data/course-data"
 import { Icons, Images } from "@/constants";
+import { router } from "expo-router";
 import { Image, Text, TouchableOpacity, View } from "react-native"
 
 type Props = {
@@ -10,7 +11,7 @@ const TopicCard = ({ item }: Props) => {
     const percentage = parseFloat(((item.solved / item.total) * 100).toFixed(1))
 
     return (
-        <TouchableOpacity className="w-full h-24 flex flex-row justify-between items-start my-3 gap-x-3">
+        <TouchableOpacity onPress={() => router.push(`/(tabs)/course/subject/${item.topicId}`)} className="w-full h-24 flex flex-row justify-between items-start my-3 gap-x-3">
             <View className="w-1/3 h-24">
                 <Image source={Images.GeneralKnowledge} className="w-full h-full object-cover rounded-lg" />
             </View>
