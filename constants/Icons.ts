@@ -16,6 +16,7 @@ import Book from '@/assets/icons/book.png'
 import List from '@/assets/icons/list.png'
 import View from '@/assets/icons/view.png'
 import Bookmark from '@/assets/icons/bookmark.png'
+import Time from '@/assets/icons/time.png'
 
 export default {
     Check,
@@ -35,5 +36,6 @@ export default {
     Book,
     List,
     View,
-    Bookmark
+    Bookmark,
+    Time
 }

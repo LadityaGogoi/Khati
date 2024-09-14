@@ -9,10 +9,8 @@ type Props = {
 };
 
 const PracticeQuestionCard = ({ index, item }: Props) => {
-    // State to track whether the answer should be revealed
     const [showAnswer, setShowAnswer] = useState(item.isAttempted);
 
-    // Function to handle the "View Answer" button click
     const handleViewAnswer = () => {
         setShowAnswer(true);
     };

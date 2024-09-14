@@ -39,7 +39,7 @@ const TabLayout = () => {
         ),
         headerShown: false
       }} />
-      <Tabs.Screen name="test-series" options={{
+      <Tabs.Screen name="tests" options={{
         tabBarLabel: "Test Series",
         tabBarIcon: ({ size, color }) => (
           <Image
