@@ -11,7 +11,7 @@ const Welcome = () => {
     useEffect(() => {
         const checkForUser = async () => {
             try {
-                const user = await AsyncStorage.getItem('user')
+                const user = await AsyncStorage.getItem('User')
                 if (user == null) {
                     setIsUserPresent(false)
                 } else {

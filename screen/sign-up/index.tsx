@@ -1,9 +1,11 @@
 import AsyncStorage from "@react-native-async-storage/async-storage"
-import { Icons } from "@/constants"
-import { router, Stack } from "expo-router"
 import { useState } from "react"
-import { Text, TouchableOpacity, View, Image, Pressable, TextInput, Alert, ActivityIndicator } from "react-native"
+import { router, Stack } from "expo-router"
 import { SafeAreaView } from "react-native-safe-area-context"
+import { Text, TouchableOpacity, View, Image, Pressable, TextInput, Alert, ActivityIndicator } from "react-native"
+import { Icons } from "@/constants"
+import { CourseTopics } from "@/assets/data/course-data"
+import { trendingTopics } from "@/assets/data/trending-topics"
 
 interface UserData {
     name: string;
@@ -34,6 +36,8 @@ const SignUpScreen = () => {
             setIsLoading(true)
             try {
                 await AsyncStorage.setItem('user', JSON.stringify(user))
+                await AsyncStorage.setItem('course', JSON.stringify(CourseTopics))
+                await AsyncStorage.setItem('trending', JSON.stringify(trendingTopics))
             } catch (error) {
                 Alert.alert('Error', 'Failed to Register')
             } finally {

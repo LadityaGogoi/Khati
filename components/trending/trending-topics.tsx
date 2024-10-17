@@ -1,9 +1,12 @@
-import { trendingTopics } from "@/assets/data/trending-topics"
+import { TrendingTopicType } from "@/assets/data/trending-topics"
 import { FlatList, Text, View } from "react-native"
 import TrendingTopicsCard from "./trending-topics-card"
 
+type Props = {
+    item: TrendingTopicType[] | null
+}
 
-const TrendingTopics = () => {
+const TrendingTopics = ({ item }: Props) => {
     return (
         <View className="flex flex-col gap-y-1.5 my-3">
             <View className="w-full flex flex-row justify-between items-center px-3">
@@ -11,7 +14,7 @@ const TrendingTopics = () => {
                 <Text className="text-lg font-extrabold text-slate-500">See All</Text>
             </View>
             <FlatList
-                data={trendingTopics}
+                data={item}
                 renderItem={({ item, index }) => <TrendingTopicsCard item={item} index={index} />}
                 horizontal
                 showsHorizontalScrollIndicator={false}

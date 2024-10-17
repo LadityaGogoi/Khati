@@ -1,24 +1,58 @@
 import { ImageSlider } from "@/assets/data/carousel-data"
+import { TrendingTopicType } from "@/assets/data/trending-topics"
+// import { trendingTopics } from "@/assets/data/trending-topics"
 import Carousel from "@/components/carousel/carousel"
 import Footer from "@/components/footer/footer"
 import TrendingTopics from "@/components/trending/trending-topics"
 import { Icons } from "@/constants"
+import AsyncStorage from "@react-native-async-storage/async-storage"
+import { router } from "expo-router"
 import { StatusBar } from "expo-status-bar"
-import { Image, ScrollView, Text, View } from "react-native"
+import { useEffect, useState } from "react"
+import { ActivityIndicator, Image, Pressable, ScrollView, Text, View } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
 
 const HomeScreen = () => {
+    const [isLoading, setIsLoading] = useState(true)
+    const [trendingTopics, setTrendingTopics] = useState<TrendingTopicType[] | null>(null)
+
+    useEffect(() => {
+        const retrieveCourseData = async () => {
+            try {
+                const data = await AsyncStorage.getItem('trending')
+                if (data) {
+                    const parsedTrendingTopics: TrendingTopicType[] = JSON.parse(data)
+                    setTrendingTopics(parsedTrendingTopics)
+                }
+            } catch (error) {
+                console.error('Error Occur While Retriving', error)
+            } finally {
+                setIsLoading(false)
+            }
+        }
+
+        retrieveCourseData()
+    }, [])
+
+    if (isLoading) {
+        return (
+            <View className="flex-1 bg-white justify-center items-center">
+                <ActivityIndicator size="large" color="#24AE7C" />
+            </View>
+        )
+    }
+
     return (
         <SafeAreaView className="bg-white">
             <ScrollView contentContainerStyle={{ minHeight: "100%" }} className="flex flex-col gap-y-3">
                 <View className="w-11/12 mx-auto flex flex-row justify-between items-center">
                     <Text className="text-xl text-green-500 font-extrabold">Khati</Text>
-                    <View className="flex flex-row justify-between items-center rounded-full p-0.5 border-2 border-green-500 gap-x-1.5">
+                    <Pressable onPress={() => router.push('/(modals)/search')} className="flex flex-row justify-between items-center rounded-full p-0.5 border-2 border-green-500 gap-x-1.5">
                         <Text className="text-xs font-bold text-slate-300">Subject | Questions | Topics...</Text>
                         <View className="w-9 h-9 p-1.5 bg-green-500 rounded-full">
                             <Image source={Icons.Search} tintColor="#fff" className="w-full h-full object-cover" />
                         </View>
-                    </View>
+                    </Pressable>
                     <View className="w-7 h-7">
                         <Image source={Icons.Notification} tintColor="#24AE7C" className="w-full h-full object-cover" />
                     </View>
@@ -54,7 +88,7 @@ const HomeScreen = () => {
                         </View>
                     </View>
                 </View>
-                <TrendingTopics />
+                <TrendingTopics item={trendingTopics} />
                 <Footer />
             </ScrollView>
             <StatusBar style="dark" />

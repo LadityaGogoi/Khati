@@ -5,16 +5,16 @@ import { ActivityIndicator, View } from "react-native"
 
 const Index = () => {
     const [isLoading, setIsLoading] = useState(true)
-    const [isFirstTime, setIsFirstTime] = useState<boolean | null>(null)
+    const [isFirstTime, setIsFirstTime] = useState<boolean | null>(true)
 
     useEffect(() => {
         const checkIfFirstTime = async () => {
             try {
-                const onboard = await AsyncStorage.getItem('FirstTime')
+                const onboard = await AsyncStorage.getItem('initial')
 
                 if (onboard == null) {
                     setIsFirstTime(true)
-                    await AsyncStorage.setItem('FirstTime', JSON.stringify(isFirstTime))
+                    await AsyncStorage.setItem('initial', JSON.stringify(isFirstTime))
                 } else {
                     setIsFirstTime(false)
                 }
